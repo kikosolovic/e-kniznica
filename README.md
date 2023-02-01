@@ -2,7 +2,7 @@
 Stránka knižnice školy Zochová
 
 
-*Language* <br>
+**Language** <br>
   Plain html s bootstrapom + Php
 
 **Database Tracking** <br>
