@@ -22,15 +22,14 @@
         }
 
         $get_search_result = $_POST["authororbook"];
-        $sql = "SELECT id, bookname, author, description, price, image FROM books WHERE bookname REGEXP '$get_search_result' OR author REGEXP '$get_search_result'";
+        $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
         $result = $conn->query($sql);
-        echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Price</th><th>Image</th></tr>";
+
+        echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
         while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row['bookname'] . "</td>";
-            echo "<td>" . $row['author'] . "</td>";
+            echo "<td>" . $row['title'] . "</td>";
+            echo "<td>" . $row['fullname'] . "</td>";
             echo "<td>" . $row['description'] . "</td>";
-            echo "<td>" . $row['price'] . "</td>";
             echo "<td><img style='display:block;' src=" . $row['image'] . " height=100px ></td>";
             echo "</tr>";
         }
