@@ -9,25 +9,26 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Knižnica</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="login/loginform.php">Login</a>
+          <a class="nav-link" href="#">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="register.php">Register</a>
+          <a class="nav-link" href="#">Register</a>
         </li>
       </ul>
     </div>
   </div>
 </nav><br><br><br><br>
 
-<form method="post">
-  <input class="form-control me-2" type="text" name="author_or_book" aria-label="Search">
-  <input type="submit"></input>
+<form method="post" >
+<div class="row d-flex justify-content-center container-fluid">
+  <div>
+    <input class="form-control" type="text" name="author_or_book" aria-label="Search"><br>
+  </div>
+</div>
+  <input type="submit" value="Search"></input>
 </form>
 <br>
 
@@ -58,5 +59,15 @@
         }
         echo "</table>";
   ?>
+
+<footer class="bg-dark text-center text-lg-start fixed-bottom">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <p class="text-white">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
+document.getElementById("datetime").innerHTML=y;</script>
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </body>
 </html>
