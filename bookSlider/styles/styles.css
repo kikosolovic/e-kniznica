@@ -1,7 +1,9 @@
 img {
     width: 100%;
-    height: 70%;
+    height: 100%;
     vertical-align: middle;
+    float: left;
+    object-fit: cover;
   }
 
 .pics_in_a_row {
