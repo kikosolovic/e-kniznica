@@ -4,6 +4,7 @@ img {
     vertical-align: middle;
     float: left;
     object-fit: cover;
+    border-radius: 8px;
   }
 
 .pics_in_a_row {
@@ -12,3 +13,6 @@ img {
 
 .img1
 {flex: .6;}
+/* .card .card-wrapper .card-body .card-img-top {
+  border: solid black 0px; ;
+} */
