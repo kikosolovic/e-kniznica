@@ -8,17 +8,17 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Knižnica</a>
+    <a class="navbar-brand" href="../index.php">Knižnica</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="login/loginform.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <a class="nav-link" href="../register.php">Register</a>
         </li>
       </ul>
     </div>
@@ -27,7 +27,7 @@
 
 <form method="post">
   <label for="mail" name="Mail">Mail</label>
-  <input class="form-control me-2" type="text" name="mail">
+  <input class="form-control me-2" type="text" name="mail" value="<?php echo $_POST['mail']??''; ?>">
   <label for="password" name="Password">Heslo</label>
   <input class="form-control me-2" type="password" name="password">
   <label for="passwordagain" name="PasswordAgain">Potvrdit heslo</label>
@@ -50,11 +50,15 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $get_mail = $_POST["mail"];
-    $get_password = $_POST["password"];
-    $get_password_again = $_POST["passwordagain"];
+    $get_mail = "";
+    $get_password = "";
+    $get_password_again = "";
 
-    if (isset($get_mail) && isset($get_password) && isset($get_password_again)) {
+    if (isset($_POST["mail"]) && isset($get_password) && isset($get_password_again)) {
+        $get_mail = $_POST["mail"];
+        $get_password = $_POST["password"];
+        $get_password_again = $_POST["passwordagain"];
+
         if ($get_mail !== "" && $get_password !== "" && $get_password_again !== "") {
             if ($get_password !== $get_password_again) {
                 echo "<p>Heslá sa nezhodujú</p>";

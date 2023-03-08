@@ -9,26 +9,25 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Knižnica</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="login/loginform.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <a class="nav-link" href="register.php">Register</a>
         </li>
       </ul>
     </div>
   </div>
 </nav><br><br><br><br>
 
-<form method="post" >
-<div class="row d-flex justify-content-center container-fluid">
-  <div>
-    <input class="form-control" type="text" name="author_or_book" aria-label="Search"><br>
-  </div>
-</div>
-  <input type="submit" value="Search"></input>
+<form method="post">
+  <input class="form-control me-2" type="text" name="author_or_book" aria-label="Search">
+  <input type="submit"></input>
 </form>
 <br>
 
@@ -45,29 +44,23 @@
         die("Connection failed: " . $conn->connect_error);
       }
 
-      $get_search_result = $_POST["author_or_book"];
-        $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
-        $result = $conn->query($sql);
+      $get_search_result = '';
+      if (isset($_POST['author_or_book'])) {
+        $get_search_result = $_POST["author_or_book"];
+      } 
 
-        echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<td>" . $row['title'] . "</td>";
-            echo "<td>" . $row['fullname'] . "</td>";
-            echo "<td>" . $row['description'] . "</td>";
-            echo "<td><img style='display:block;' src=" . $row['image'] . " height=100px ></td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+      $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
+      $result = $conn->query($sql);
+
+      echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
+      while ($row = $result->fetch_assoc()) {
+          echo "<td>" . $row['title'] . "</td>";
+          echo "<td>" . $row['fullname'] . "</td>";
+          echo "<td>" . $row['description'] . "</td>";
+          echo "<td><img style='display:block;' src=" . $row['image'] . " height=100px ></td>";
+          echo "</tr>";
+      };
+      echo "</table>";
   ?>
-
-<footer class="bg-dark text-center text-lg-start fixed-bottom">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-  <p class="text-white">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
-document.getElementById("datetime").innerHTML=y;</script>
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer>
 </body>
 </html>
