@@ -56,7 +56,7 @@
         die("Connection failed: " . $conn->connect_error);
       }
 
-      $get_search_result = $_POST["author_or_book"];
+    //   $get_search_result = $_POST["author_or_book"];
         $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
         $result = $conn->query($sql);
 
