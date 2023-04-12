@@ -47,9 +47,9 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $get_mail = $_POST["mail"];
-    $get_password = $_POST["password"];
-    $get_password_again = $_POST["passwordagain"];
+    $get_mail = $_POST["mail"] ?? null;
+    $get_password = $_POST["password"] ?? null;
+    $get_password_again = $_POST["passwordagain"] ?? null;
 
     if (isset($get_mail) && isset($get_password) && isset($get_password_again)) {
         if ($get_mail !== "" && $get_password !== "" && $get_password_again !== "") {
