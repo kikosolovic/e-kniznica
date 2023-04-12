@@ -21,7 +21,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <?php
           // include 'login/login.php';
-          if (false){
+          if (true){
             echo '
             <li class="nav-item">
             <a class="nav-link" href="login/login.php">Prihlásiť</a>
