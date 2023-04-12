@@ -19,12 +19,28 @@
         </li>
       </ul>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="login/login.php">Prihlásiť</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="register/register.php">Registrovať</a>
-        </li>
+        <?php
+          // include 'login/login.php';
+          if (false){
+            echo '
+            <li class="nav-item">
+            <a class="nav-link" href="login/login.php">Prihlásiť</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="register/register.php">Registrovať</a>
+          </li>';
+          }
+          else{
+            echo '
+            <li class="nav-item">
+            <a class="nav-link" href="login/login.php">[Meno] [Priezvisko]</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Odhlasit</a>
+          </li>
+            ';
+          }
+          ?>
       </ul>
     </div>
   </div>
