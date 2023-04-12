@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="logindiv">
@@ -37,8 +37,8 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $get_mail = $_POST["uname"];
-    $get_password = $_POST["password"];
+    $get_mail = $_POST["uname"] ?? null;
+    $get_password = $_POST["password"] ?? null; 
 
     if (isset($get_mail) && isset($get_password)) {
         if ($get_mail !== "" && $get_password !== "") {
