@@ -1,0 +1,90 @@
+body {
+    margin : 0;
+    padding: 0;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: roboto;
+    src : url(roboto/Roboto-Thin.ttf) format("truetype");
+  }
+
+*{
+    font-family: roboto;
+    box-sizing: padding-box;
+}
+
+.logindiv {
+    width: 40%;
+    margin-top: 40px;
+}
+
+form {
+    border: 8px solid #b7e0d9;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.input {
+    display: block;
+    border: 2px solid #b7e0d9;
+    width: 95%;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+label {
+    color: #888;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.loginbtn {
+    background: #b7e0d9;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+    border: 2px solid #3fcfb7;
+    
+}
+
+.error {
+   background: #F2DEDE;
+   color: #0c0101;
+   padding: 10px;
+   width: 95%;
+   border-radius: 5px;
+   margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(134, 3, 3);
+}
+
+.a {
+    float: right;
+    background: rgb(183, 225, 233);
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 10px;
+    margin-right: 10px;
+    border: none;
+    text-decoration: none;
+}
+
+.nehehe{
+    width: 100%;
+    text-align: center;
+}
