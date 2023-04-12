@@ -15,7 +15,7 @@
         <input class="input"type="text" name="uname"><br>
         <label>Password</label>
         <input class="input" type="password" name="password"> 
-        <p>Nemas ucet? <a href="">Registrovat</a></p>
+        <p>Nemas ucet? <a href="./../register.php">Registrovat</a></p>
         <div class="nehehe">
             <input class="loginbtn" type="submit" value="Login">
         </div>
