@@ -20,7 +20,7 @@
       </ul>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="Login1//loginform.php">Prihlásiť</a>
+          <a class="nav-link" href="Login1/loginform.php">Prihlásiť</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="register.php">Registrovať</a>
