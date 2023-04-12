@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Register</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
@@ -12,28 +12,49 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Prihlásiť</a>
+          <a class="nav-link" href="">Prihlásiť</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="register.php">Registrovať</a>
+          <a class="nav-link" href="">Registrovať</a>
         </li>
       </ul>
     </div>
   </div>
 </nav><br><br><br><br>
 
-<form method="post">
-  <label for="mail" name="Mail">Mail</label>
-  <input class="form-control me-2" type="text" name="mail">
-  <label for="password" name="Password">Heslo</label>
-  <input class="form-control me-2" type="password" name="password">
-  <label for="passwordagain" name="PasswordAgain">Potvrdit heslo</label>
-  <input class="form-control me-2" type="password" name="passwordagain">
-  <p>Už máte účet? <a href="login/loginform.php">Prihlaste sa</a></p>
-  <input type="submit" class="btn btn-primary" value="Registrovať"></input>
-</form>
-<br>
+<body>
+    <div class="registerdiv">
+     <form action="register.php" method="post">
+        <h2>Register</h2>
+        <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+        <?php } ?>
+        <label>First Name</label>
+        <input class="input"type="text" name="fname"><br>
+        <label>Last Name</label>
+        <input class="input"type="text" name="lname"><br>
+        <label>Email</label>
+        <input class="input"type="text" name="email"><br>
+        <label>Password</label>
+        <input class="input" type="password" name="password"> 
+        <label>Password Again</label>
+        <input class="input" type="password" name="passwordagain"> 
+        <p>Nemas ucet? <a href="">Registrovat</a></p>
+        <div class="nehehe">
+            <input class="registerbtn" type="submit" value="Register">
+        </div>
+        
+     </form>
+     </div>
 
+<br><br><br><br><br><br>
+<footer class="bg-dark text-center text-lg-start fixed-bottom">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <p class="text-white">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
+document.getElementById("datetime").innerHTML=y;</script>
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+</footer>
 
 <?php
     $servername = "localhost";
