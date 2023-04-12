@@ -56,19 +56,19 @@
         die("Connection failed: " . $conn->connect_error);
       }
 
-      $get_search_result = $_POST["author_or_book"];
-        $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
-        $result = $conn->query($sql);
+      $get_search_result = $_POST["author_or_book"] ?? null;
+      $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
+      $result = $conn->query($sql);
 
-        echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<td>" . $row['title'] . "</td>";
-            echo "<td>" . $row['fullname'] . "</td>";
-            echo "<td>" . $row['description'] . "</td>";
-            echo "<td><img style='display:block;' src=" . $row['image'] . " height=100px ></td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+      echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
+      while ($row = $result->fetch_assoc()) {
+          echo "<td>" . $row['title'] . "</td>";
+          echo "<td>" . $row['fullname'] . "</td>";
+          echo "<td>" . $row['description'] . "</td>";
+          echo "<td><img style='display:block;' src=" . $row['image'] . " height=100px ></td>";
+          echo "</tr>";
+      }
+      echo "</table>";
   ?>
 
 <footer class="bg-dark text-center text-lg-start fixed-bottom">
