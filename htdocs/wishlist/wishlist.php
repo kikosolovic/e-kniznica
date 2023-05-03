@@ -12,38 +12,15 @@
 
 <nav class="navbar navbar-expand-md fixed-top" style="background-color: #B7E0D9;">
   <div class="container-fluid">
-    <a class="navbar-brand navlinkfg" href="index.php">Knižnica</a>
+    <a class="navbar-brand navlinkfg" href="wishlist.php">Wishlist</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link navlinkfg" href="#">Uživatel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navlinkfg" href="wishlist/wishlist.php">Wishlist</a>
+          <a class="nav-link navlinkfg" href="javascript:history.back()">Knižnica</a>
         </li>
-      </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
-        <?php
-          if (true){
-            echo '
-            <li class="nav-item">
-            <a class="nav-link navlinkfg" href="login/loginform.php">Prihlásiť</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link navlinkfg" href="register/registerform.php">Registrovať</a>
-          </li>';
-          }
-          else{
-            echo '
-            <li class="nav-item">
-            <a class="nav-link navlinkfg" href="login/loginform.php">[Meno] [Priezvisko]</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Odhlasit</a>
-          </li>
-            ';
-          }
-          ?>
       </ul>
     </div>
   </div>
@@ -80,24 +57,27 @@
       $get_search_result = $_POST["author_or_book"] ?? null;
       $sql = "SELECT books.title, books.author_id, authors.fullname, books.description, books.image FROM books INNER JOIN authors ON books.author_id = authors.id WHERE title REGEXP '$get_search_result' OR fullname REGEXP '$get_search_result'";
       $result = $conn->query($sql);
+      $count = 0;
 
       echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
-      while ($row = $result->fetch_assoc()) {
+
+      while ($row = $result->fetch_assoc() and $count <= 1) {
           echo "<td>" . $row['title'] . "</td>";
           echo "<td>" . $row['fullname'] . "</td>";
           echo "<td>" . $row['description'] . "</td>";
           echo "<td><img style='display:block;' src=" . $row['image'] . " height=100px ></td>";
           echo "</tr>";
+          $count++;
       }
       echo "</table>";
   ?>
 <br><br><br><br><br><br>
 
-<footer class="text-center text-lg-start" style="background-color: #B7E0D9;">
+<footer class="text-center text-lg-start fixed-bottom" style="background-color: #B7E0D9;">
   <div class="text-center p-3" style="background-color: #B7E0D9;">
   <p class="navlinkfg">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
 document.getElementById("datetime").innerHTML=y;</script>
-    <a class="navlinkfg" href="#">Knižnica</a>
+    <a class="navlinkfg" href="#">Wishlist</a>
   </div>
 </footer>
 </body>
