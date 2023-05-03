@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-md fixed-top" style="background-color: #B7E0D9;">
   <div class="container-fluid">
-    <a class="navbar-brand navlinkfg" href="javascript:history.back()">Knižnica</a>
+    <a class="navbar-brand navlinkfg" href="./../index.php">Knižnica</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     </div>
   </div>
@@ -24,11 +24,11 @@
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
-        <label>User Name</label>
+        <label>Uživateľské meno</label>
         <input class="input"type="text" name="uname"><br>
-        <label>Password</label>
+        <label>Heslo</label>
         <input class="input" type="password" name="password"> 
-        <p>Nemas ucet? <a href="./../register/register.php">Registrovat</a></p>
+        <p>Nemas ucet? <a href="./../register/registerform.php">Registrovat</a></p>
         <div class="nehehe">
             <input class="loginbtn" type="submit" value="Login">
         </div>
@@ -70,16 +70,5 @@
         };
     };
 ?>
-
-<br><br><br><br><br><br>
-
-<footer class="text-center text-lg-start fixed-bottom" style="background-color: #B7E0D9;">
-  <div class="text-center p-3" style="background-color: #B7E0D9;">
-  <p class="navlinkfg">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
-document.getElementById("datetime").innerHTML=y;</script>
-    <a class="navlinkfg" href="#">Login</a>
-  </div>
-</footer>
-
 </body>
 </html>

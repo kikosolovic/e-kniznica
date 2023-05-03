@@ -8,16 +8,13 @@
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <nav class="navbar navbar-expand-md fixed-top" style="background-color: #B7E0D9;">
   <div class="container-fluid">
     <a class="navbar-brand navlinkfg" href="wishlist.php">Wishlist</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link navlinkfg" href="#">Uživatel</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link navlinkfg" href="javascript:history.back()">Knižnica</a>
         </li>
@@ -73,7 +70,7 @@
   ?>
 <br><br><br><br><br><br>
 
-<footer class="text-center text-lg-start fixed-bottom" style="background-color: #B7E0D9;">
+<footer class="text-center text-lg-start mt-auto" style="background-color: #B7E0D9;">
   <div class="text-center p-3" style="background-color: #B7E0D9;">
   <p class="navlinkfg">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
 document.getElementById("datetime").innerHTML=y;</script>
