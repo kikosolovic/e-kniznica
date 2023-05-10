@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-md fixed-top" style="background-color: #B7E0D9;">
   <div class="container-fluid">
-    <a class="navbar-brand navlinkfg" href="./../index.php">Knižnica</a>
+    <a class="navbar-brand navlinkfg" href="javascript:history.back()">Knižnica</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     </div>
   </div>
@@ -25,22 +25,34 @@
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
-        <label>Meno</label>
+        <label>First Name</label>
         <input class="input"type="text" name="fname"><br>
-        <label>Priezvisko</label>
+        <label>Last Name</label>
         <input class="input"type="text" name="lname"><br>
         <label>Email</label>
         <input class="input"type="text" name="email"><br>
-        <label>Heslo</label>
+        <label>Password</label>
         <input class="input" type="password" name="password"> 
-        <label>Heslo znova</label>
+        <label>Password Again</label>
         <input class="input" type="password" name="passwordagain"> 
-        <p>Máš účet? <a href="./../login/loginform.php">Prihlásiť</a></p>
+        <p>Nemas ucet? <a href="">Registrovat</a></p>
         <div class="nehehe">
             <input class="registerbtn" type="submit" value="Register">
         </div>
         
      </form>
      </div>
+
+<br><br><br><br><br><br>
+
+
+<footer class="text-center text-lg-start fixed-bottom" style="background-color: #B7E0D9;">
+  <div class="text-center p-3" style="background-color: #B7E0D9;">
+  <p class="navlinkfg">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
+document.getElementById("datetime").innerHTML=y;</script>
+    <a class="navlinkfg" href="#">Register</a>
+  </div>
+</footer>
+
 </body>
 </html>
