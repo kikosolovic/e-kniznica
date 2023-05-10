@@ -24,6 +24,7 @@
       </ul>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <?php
+          include './login/loginscript.php';
           if (true){
             echo '
             <li class="nav-item">
@@ -31,16 +32,16 @@
             </li>
             <li class="nav-item">
             <a class="nav-link navlinkfg" href="register/registerform.php">Registrovať</a>
-          </li>';
+            </li>';
           }
           else{
-            echo '
+          echo '
             <li class="nav-item">
             <a class="nav-link navlinkfg" href="login/loginform.php">[Meno] [Priezvisko]</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">Odhlasit</a>
-          </li>
+            </li>
             ';
           }
           ?>
