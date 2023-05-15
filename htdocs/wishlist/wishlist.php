@@ -19,7 +19,7 @@
           <a class="nav-link navlinkfg" href="#">Uživatel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link navlinkfg" href="javascript:history.back()">Knižnica</a>
+          <a class="nav-link navlinkfg" href="../index.php">Knižnica</a>
         </li>
       </ul>
     </div>

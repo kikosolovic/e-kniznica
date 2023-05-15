@@ -20,17 +20,14 @@
 
     if (isset($get_mail) && isset($get_password)) {
         if ($get_mail !== "" && $get_password !== "") {
-            $sql = "SELECT * from credentials WHERE email_address = '$get_mail' AND password = '$get_password'";
+            $sql = "SELECT users.firstname, users.lastname FROM credentials JOIN users ON credentials.id=users.credential_id WHERE email_address = '$get_mail' AND password = '$get_password'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
+                    include "../jsonhandler.php";
                     echo "<p>Login successful!</p>";
-                    $myfile = fopen("../data.txt", "w") or die("Unable to open file!");
-                    $txt = ["logged" => true, "name" => "viliam", "surname" => "polak",];
-                    file_put_contents("data.json", json_encode($txt));
-                    fwrite($myfile, $txt);
-                    fclose($myfile);
+                    set($name=$row["firstname"], $surname=$row["lastname"], $logged=true);
                 }
               } else {
                 echo "<p>Login failed!</p>";

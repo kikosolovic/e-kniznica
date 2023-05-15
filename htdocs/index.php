@@ -10,45 +10,8 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md fixed-top" style="background-color: #B7E0D9;">
-  <div class="container-fluid">
-    <a class="navbar-brand navlinkfg" href="index.php">Knižnica</a>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link navlinkfg" href="#">Uživatel</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navlinkfg" href="wishlist/wishlist.php">Wishlist</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
-        <?php
-          include './login/loginscript.php';
-          if (true){
-            echo '
-            <li class="nav-item">
-            <a class="nav-link navlinkfg" href="login/loginform.php">Prihlásiť</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link navlinkfg" href="register/registerform.php">Registrovať</a>
-            </li>';
-          }
-          else{
-          echo '
-            <li class="nav-item">
-            <a class="nav-link navlinkfg" href="login/loginform.php">[Meno] [Priezvisko]</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Odhlasit</a>
-            </li>
-            ';
-          }
-          ?>
-      </ul>
-    </div>
-  </div>
-</nav><br><br><br><br>
+<?php include "./navbar.php" ?>
+<br><br><br><br>
 
 <form method="post">
 <div class="justify-content-center container">
@@ -84,6 +47,7 @@
 
       echo "<table border='1'><tr><th>Bookname</th><th>Author</th><th>Description</th><th>Image</th></tr>";
       while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
           echo "<td>" . $row['title'] . "</td>";
           echo "<td>" . $row['fullname'] . "</td>";
           echo "<td>" . $row['description'] . "</td>";
@@ -92,7 +56,6 @@
       }
       echo "</table>";
   ?>
-<br><br><br><br><br><br>
 
 <footer class="text-center text-lg-start" style="background-color: #B7E0D9;">
   <div class="text-center p-3" style="background-color: #B7E0D9;">
