@@ -20,7 +20,7 @@
 
 <body>
     <div class="registerdiv">
-     <form action="register.php" method="post">
+     <form method="post">
         <h2>Register</h2>
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
@@ -35,14 +35,20 @@
         <input class="input" type="password" name="password"> 
         <label>Password Again</label>
         <input class="input" type="password" name="passwordagain"> 
-        <p>Nemas ucet? <a href="">Registrovat</a></p>
+        <p>Mas ucet? <a href="./../login/loginform.php">Prihlasit</a></p>
         <div class="nehehe">
             <input class="registerbtn" type="submit" value="Register">
         </div>
         
      </form>
      </div>
+</body>
+</html>
 
+<?php
+include 'registerscript.php';
+   register()
+?>
 <br><br><br><br><br><br>
 
 
