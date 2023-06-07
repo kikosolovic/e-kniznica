@@ -73,7 +73,7 @@
   ?>
 
 
-<footer class="text-center text-lg-start" style="background-color: #B7E0D9;">
+<footer class="text-center fixed-bottom text-lg-start" style="background-color: #B7E0D9;">
   <div class="text-center p-3" style="background-color: #B7E0D9;">
   <p class="navlinkfg">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
 document.getElementById("datetime").innerHTML=y;</script>

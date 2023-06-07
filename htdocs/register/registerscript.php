@@ -23,9 +23,9 @@
 
     if (isset($get_fname) && isset($get_lname) && isset($get_email) && isset($get_password) && isset($get_passwordagain)) {
         if ($get_fname !== "" && $get_lname !== "" && $get_email !== "" && $get_password !== "" && $get_passwordagain !== "") {
-            $sql = "INSERT INTO users (firstname, lastname) VALUES ($get_fname, $get_lname) AND INSERT INTO credentials (email_address, password) VALUES ($get_email, $get_passwordagain)";
-
+            
             if ($conn->query($sql) === TRUE) {
+                $sql = "INSERT INTO users (firstname, lastname) VALUES ($get_fname, $get_lname) AND INSERT INTO credentials (email_address, password) VALUES ($get_email, $get_passwordagain)";
                 echo "Added";
                 }
         } else {
