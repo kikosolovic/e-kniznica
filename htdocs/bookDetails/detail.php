@@ -41,6 +41,9 @@
                             <li>Genres: '. $bookdata[0]['main_genre'] .'</li>
                             <br><br><br><br><br><br><br><br>
                             <p>'. $bookdata[0]['description'] .'</p>
+                            <form action="wishlist_add.php">
+                                <button class="btn btn-primary" type="button">Add to Wishlist</button>
+                            </form>
                         </ul>
                     </div>
                 </div>           
