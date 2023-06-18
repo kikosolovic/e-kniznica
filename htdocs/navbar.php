@@ -9,12 +9,16 @@
         <li class="nav-item">
           <a class="nav-link navlinkfg" href="wishlist/wishlist.php">Wishlist</a>
         </li>
-      </ul>
+        <li class="nav-item">
+          <a class="nav-link navlinkfg" href="wishlist/wishlist.php">Wishlist</a>
+        </li>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
         <?php
-        include "./jsonhandler.php";
-        $freekarlo = get();
-          if (!$freekarlo["logged"]){
+        include "login/loginscript.php";
+        if (!isset($_SESSION)) {
+          session_start();
+        }
+          if (!isset($_SESSION["firstname"])){
             echo('
             <li class="nav-item">
             <a class="nav-link navlinkfg" href="login/loginform.php">Prihlásiť</a>
@@ -26,10 +30,10 @@
           else{
           echo('
             <li class="nav-item">
-            <a class="nav-link navlinkfg" href="login/loginform.php">'. $freekarlo["name"] .' '. $freekarlo["surname"] . '</a>
+            <a class="nav-link navlinkfg" href="login/loginform.php">'. $_SESSION["firstname"] .' '. $_SESSION["lastname"] . '</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Odhlasit</a>
+            <a class="nav-link" href="login/loginscript.php?function=logout">Odhlasit</a>
             </li>
             ');
           }
