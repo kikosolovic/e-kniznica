@@ -22,7 +22,7 @@
       <input class="form-control" type="text" name="author_or_book" aria-label="Search">
     </div>
     <div>
-      <input class="btn btn-outline-secondary" type="submit" value="Hľadať"></input>
+      <input class="btn btn-outline-secondary" type="submit" value="Hľadať">
     </div>
   </div>
 </div>
@@ -38,7 +38,7 @@
         
         $conn = new mysqli($servername, $username, $password, $database);
         
-        if ($conn->connect_error) {;
+        if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
         }
 
@@ -79,7 +79,7 @@
 
 <footer class="text-center fixed-bottom text-lg-start" style="background-color: #B7E0D9;">
   <div class="text-center p-3" style="background-color: #B7E0D9;">
-  <p class="navlinkfg">Year: <span id="datetime"></span></p><script>var dt = new Date(); var y = dt.getFullYear();
+  <p class="navlinkfg">Year: <span id="datetime"></span></p><script>let dt = new Date(); let y = dt.getFullYear();
 document.getElementById("datetime").innerHTML=y;</script>
     <a class="navlinkfg" href="#">Knižnica</a>
   </div>
