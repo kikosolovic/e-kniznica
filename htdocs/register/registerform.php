@@ -25,21 +25,20 @@
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
-        <label>First Name</label>
-        <input class="input"type="text" name="fname"><br>
-        <label>Last Name</label>
-        <input class="input"type="text" name="lname"><br>
-        <label>Email</label>
-        <input class="input"type="text" name="email"><br>
-        <label>Password</label>
-        <input class="input" type="password" name="password"> 
-        <label>Password Again</label>
-        <input class="input" type="password" name="passwordagain"> 
-        <p>Mas ucet? <a href="./../login/loginform.php">Prihlasit</a></p>
+        <label id="fname">First Name</label>
+        <input class="input" type="text" name="fname" placeholder="Type your first name here."><br>
+        <label id="lname">Last Name</label>
+        <input class="input" type="text" name="lname" placeholder="Type your last name here."><br>
+        <label id="email">Email</label>
+        <input class="input" type="text" name="email" placeholder="Type your email here."><br>
+        <label id="password">Password</label>
+        <input class="input" type="password" name="password" placeholder="Type your password here.">
+        <label id="passwordagain">Repeat Password</label>
+        <input class="input" type="password" name="passwordagain" placeholder="Type your password again here.">
+        <p>Máte účet? <a href="./../login/loginform.php">Prihláste sa</a></p>
         <div class="nehehe">
             <input class="registerbtn" type="submit" value="Register">
         </div>
-        
      </form>
      </div>
 </body>
@@ -49,7 +48,3 @@
 include 'registerscript.php';
    register()
 ?>
-
-
-</body>
-</html>
