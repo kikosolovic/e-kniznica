@@ -42,17 +42,21 @@ function register() {
                     echo "<p style='color: #d0a100; font-size: 2em'>Technický problém. Skúste sa registrovať neskôr.<p>";
                 }
 
-                $sql1 = "INSERT INTO users (id, firstname, lastname, credential_id, admin) VALUES (?, ?, ?, ?, 0)";
-                $stmt1 = $conn->prepare($sql1);
-                $stmt1->bind_param("isss", $highest_id, $get_fname, $get_lname, $highest_id);
-                $stmt1->execute();
+                try {
+                    $sql1 = "INSERT INTO users (id, firstname, lastname, credential_id, admin) VALUES (?, ?, ?, ?, 0)";
+                    $stmt1 = $conn->prepare($sql1);
+                    $stmt1->bind_param("isss", $highest_id, $get_fname, $get_lname, $highest_id);
+                    $stmt1->execute();
 
-                $sql2 = "INSERT INTO credentials (id, email_address, password) VALUES (?, ?, ?)";
-                $stmt2 = $conn->prepare($sql2);
-                $stmt2->bind_param("iss", $highest_id, $get_email, $get_passwordagain);
-                $stmt2->execute();
+                    $sql2 = "INSERT INTO credentials (id, email_address, password) VALUES (?, ?, ?)";
+                    $stmt2 = $conn->prepare($sql2);
+                    $stmt2->bind_param("iss", $highest_id, $get_email, $get_passwordagain);
+                    $stmt2->execute();
 
-                echo "<p style='color: dodgerblue; font-size: 2em'>Registrácia úspešná.<p>";
+                    echo "<p style='color: dodgerblue; font-size: 2em'>Registrácia úspešná.<p>";
+                } catch (mysqli_sql_exception $error) {
+                    echo "<p style='color: #a300ff; font-size: 2em'>Email $get_email je už registrovaný.<p>";
+                }
             } else {
                 echo "<p style='color: #a300ff; font-size: 2em'>Heslo musí mať aspoň 8 znakov a obsahovať aspoň jedno číslo, veľké a malé písmeno.<p>";
             }
