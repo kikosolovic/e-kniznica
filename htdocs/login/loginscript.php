@@ -1,9 +1,13 @@
 
 <?php
+if (isset($_GET['function'])) {
+    $function = $_GET['function'];
+    if (function_exists($function)) {
+        $function();
+    }
+}
 
-    $logged = 'nig';
-
-    function login(){
+function login(){
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -24,19 +28,27 @@
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
+                echo "<p>Login successful!</p>";
+                if(!isset($_SESSION)){session_start();}
                 while($row = $result->fetch_assoc()) {
-                    include "../jsonhandler.php";
+                    echo("firsstname ".$row["firstname"]."; lastname ".$row["lastname"]);
                     echo "<p>Login successful!</p>";
-                    set($name=$row["firstname"], $surname=$row["lastname"], $logged=true);
+                    $_SESSION['firstname']=$row["firstname"];
+                    $_SESSION['lastname']=$row["lastname"];
                 }
               } else {
+                echo("Email ".$get_mail."; Password ".$get_password);
                 echo "<p>Login failed!</p>";
-                $logged = "fail";
-                file_put_contents("data.json", json_encode(["logged" => false]));
               }
         } else {
             echo "<p>Všetky polia musia byť vyplnené.</p>";
         };
     };
+}
+
+function logout(){
+    session_start();
+    session_unset();
+    header("Location: ../index.php");
 }
 ?>
