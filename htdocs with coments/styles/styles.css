@@ -1,0 +1,16 @@
+img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    float: left;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+.pics_in_a_row {
+    display: flex;
+  }
+
+.img1 {
+  flex: .6;
+}
